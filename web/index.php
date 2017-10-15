@@ -1,22 +1,38 @@
 <?php
+//grab twilio user number and msg content
+$user_number = $_POST['From'];
+$user_msg = $_POST['Body'];
+header('Content-Type: text/xml');
 
-require('../vendor/autoload.php');
-use Twilio\Rest\Client;
-
-$sid = 'ACda1034e9e0390036bc3d8ac0231b595b';
-$token = '06d798c008392b3159a419dfdde77a00';
-$client = new Client($sid, $token);
-
-$to = '15512004783';
-$from = '14157612633';
-$message_body = 'Hello from Mohitosh Mondal CS 643 Fall 2017';
-
-$client->messages->create(
-   $to,
-   array(
-       'from' => $from,
-       'body' => $message_body
-   )
+//generate API Request
+$WA_request = "https://api.wolframalpha.com/v2/result?";
+$WA_query = array(
+    'i' => $user_msg,
+    'appid' => 'DEMO'
 );
 
-echo "An SMS was sent";
+// generate cURL session
+$url = $WA_request.$WA_query;
+// create a new cURL resource
+$ch = curl_init();
+// set URL and other appropriate options
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 4);
+// grab URL and pass it to the browser
+$json = curl_exec($ch);
+//validate response
+if(!$json) {
+    echo curl_error($ch);
+}
+// close cURL resource, and free up system resources
+curl_close($ch);
+print_r(json_decode($json));
+
+// Send SMS Response:
+?>
+<Response>
+    <Message>
+        <?php json_decode($json)?>
+    </Message>
+</Response>
