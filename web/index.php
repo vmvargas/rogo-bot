@@ -1,8 +1,8 @@
 <?php
 //grab twilio user number and msg content
-$user_number = $_POST['From'];
-$user_msg = $_POST['Body'];
-header('Content-Type: text/xml');
+// $user_number = $_POST['From'];
+// $user_msg = $_POST['Body'];
+// header('Content-Type: text/xml');
 
 //generate API Request
 $WA_request = "https://api.wolframalpha.com/v2/result?";
