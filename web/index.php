@@ -12,7 +12,7 @@ $WA_query = array(
 );
 
 // generate cURL session
-$url = $WA_request.$WA_query;
+$url = $WA_request.http_build_query($WA_query);
 // create a new cURL resource
 $ch = curl_init();
 // set URL and other appropriate options
@@ -29,9 +29,9 @@ if(!$json) {
 curl_close($ch);
 
 //print variables
-echo '$user_msg: '. $user_msg;
-echo '$url: '. $url;
-echo '$json: '. $json;
+// echo '$user_msg: '. $user_msg . '\n';
+echo '$url: '. $url. '\n';
+echo '$json: '. $json. '\n';
 print_r(json_decode($json));
 
 // Send SMS Response:
