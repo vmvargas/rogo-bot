@@ -4,10 +4,12 @@
 // $user_msg = $_POST['Body'];
 // header('Content-Type: text/xml');
 
+//first letter has to be uppercase
+
 //generate API Request
 $WA_request = "https://api.wolframalpha.com/v2/result?";
 $WA_query = array(
-    'i' => "is a tomato a fruit?",
+    'i' => "Is a tomato a fruit?",
     'appid' => 'X45X92-QY63ELWRXQ'
 );
 
