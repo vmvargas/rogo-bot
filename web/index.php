@@ -8,7 +8,7 @@
 $WA_request = "https://api.wolframalpha.com/v2/result?";
 $WA_query = array(
     'i' => "is a tomato a fruit?",
-    'appid' => 'DEMO'
+    'appid' => 'X45X92-QY63ELWRXQ'
 );
 
 // generate cURL session
@@ -30,8 +30,10 @@ curl_close($ch);
 
 //print variables
 // echo '$user_msg: '. $user_msg . '\n';
-echo '$url: '. $url. '\n';
-echo '$json: '. $json. '\n';
+echo '$url: '. $url;
+echo "";
+echo '$json: '. $json;
+echo "";
 print_r(json_decode($json));
 
 // Send SMS Response:
