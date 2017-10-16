@@ -35,4 +35,3 @@ echo '$json: '. $json;
 print_r(json_decode($json));
 
 // Send SMS Response:
-?>
