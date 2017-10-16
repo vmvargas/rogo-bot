@@ -41,6 +41,6 @@ print_r(json_decode($json));
 ?>
 <Response>
 <Message>
-    <?php json_decode($json)?>
+    <?php echo json_decode($json)?>
 </Message>
 </Response>
