@@ -1,15 +1,13 @@
 <?php
 //grab twilio user number and msg content
-// $user_number = $_POST['From'];
-// $user_msg = $_POST['Body'];
-// header('Content-Type: text/xml');
-
-//first letter has to be uppercase
+$user_number = $_POST['From'];
+$user_msg = $_POST['Body'];
+header('Content-Type: text/xml');
 
 //generate API Request
 $WA_request = "https://api.wolframalpha.com/v2/result?";
 $WA_query = array(
-    'i' => "Is a tomato a fruit?",
+    'i' => ucfirst($user_msg), //first letter has to be uppercase for wolfram query stirng to work
     'appid' => 'X45X92-QY63ELWRXQ'
 );
 
@@ -30,12 +28,19 @@ if(!$json) {
 // close cURL resource, and free up system resources
 curl_close($ch);
 
-//print variables
-// echo '$user_msg: '. $user_msg . '\n';
+/* print variables
+echo '$user_msg: '. $user_msg . '\n';
 echo '$url: '. $url;
 echo "";
 echo '$json: '. $json;
 echo "";
 print_r(json_decode($json));
+*/
 
 // Send SMS Response:
+?>
+<Response>
+<Message>
+    <?php json_decode($json)?>
+</Message>
+</Response>
