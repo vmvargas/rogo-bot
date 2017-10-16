@@ -36,8 +36,3 @@ print_r(json_decode($json));
 
 // Send SMS Response:
 ?>
-<Response>
-    <Message>
-        <?php json_decode($json)?>
-    </Message>
-</Response>
