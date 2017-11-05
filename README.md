@@ -1,6 +1,7 @@
 # RogoBot
 
-An SMS service that provides short textual answers, quickly giving the main result for a query from Wolfram|Alpha. Suitable for developing countries with limited access to internet as it provides rapid responses via SMS.
+An SMS service that provides short textual answers, quickly giving the main result for a query from Wolfram|Alpha. Suitable for developing countries with limited access to the internet as it provides rapid responses via SMS.
+
 
 ## Deploying
 
@@ -10,12 +11,15 @@ An SMS service that provides short textual answers, quickly giving the main resu
 * Point your Twilio number to your URL at Heroku.
 * Test sending a question to your Twilio number. 
 
+
+
 ## Running a test
 
-1. Send a SMS to the number +1(917)267-7334. (e.g.: Population of New York?)
+1. Send an SMS to the number +1(917)267-7334. (e.g.: Population of New York?)
 2. Get an answer from Wolfram|Alpha.
 
 This app was configured with a twilio number
+
 
 ## Documentation
 
