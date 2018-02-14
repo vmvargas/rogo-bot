@@ -8,7 +8,7 @@ header('Content-Type: text/xml');
 $WA_request = "https://api.wolframalpha.com/v2/result?";
 $WA_query = array(
     'i' => ucfirst($user_msg), //first letter has to be uppercase for wolfram query stirng to work
-    'appid' => 'X45X92-QY63ELWRXQ'
+    'appid' => 'REPLACE_WITH_YOUR_OWN'
 );
 
 // generate cURL session
